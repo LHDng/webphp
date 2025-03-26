@@ -5,6 +5,7 @@ require_once '../config/session.php';
 $_SESSION = array();
 session_destroy();
 
+
 // Chuyển hướng về trang đăng nhập
 header("Location: login.php");
 exit();

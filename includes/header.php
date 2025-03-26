@@ -8,6 +8,7 @@ $base_url = dirname($_SERVER['SCRIPT_NAME']);
 if ($base_url === '/') {
     $base_url = '';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">

@@ -16,6 +16,7 @@ $sqlHP = "SELECT * FROM HocPhan WHERE MaHP = ? AND SoLuongDuKien > 0";
 $stmtHP = $conn->prepare($sqlHP);
 $stmtHP->bind_param("s", $mahp);
 $stmtHP->execute();
+
 $resultHP = $stmtHP->get_result();
 
 if ($resultHP->num_rows == 0) {

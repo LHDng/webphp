@@ -12,7 +12,8 @@ $nganhHoc = $conn->query("SELECT * FROM NganhHoc");
 
 <form action="process.php" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="action" value="create">
-    
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
     <div class="row mb-3">
         <div class="col-md-6">
             <label for="MaSV" class="form-label">Mã Sinh Viên</label>
@@ -31,7 +32,7 @@ $nganhHoc = $conn->query("SELECT * FROM NganhHoc");
                 <option value="">Chọn giới tính</option>
                 <option value="Nam">Nam</option>
                 <option value="Nữ">Nữ</option>
-                <option value="Khác">Khác</option>
+                
             </select>
         </div>
         <div class="col-md-4">

@@ -5,16 +5,25 @@ require_once CONFIG_PATH . '/db.php';
 
 // Kiểm tra phương thức POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $_SESSION['error'] = "Phương thức không hợp lệ!";
     header("Location: index.php");
     exit();
 }
 
-// Xử lý CSRF token
-if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    $_SESSION['error'] = "Token bảo mật không hợp lệ!";
-    header("Location: index.php");
+// Kiểm tra CSRF token
+if (empty($_POST['csrf_token']) || 
+    empty($_SESSION['csrf_token']) || 
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']) ||
+    time() > $_SESSION['csrf_token_expire']) {
+    
+    $_SESSION['error'] = "Token bảo mật không hợp lệ hoặc đã hết hạn!";
+    header("Location: " . (isset($_POST['MaSV']) ? 'edit.php?id='.$_POST['MaSV'] : 'index.php'));
     exit();
 }
+
+// Xóa token sau khi đã sử dụng
+unset($_SESSION['csrf_token']);
+unset($_SESSION['csrf_token_expire']);
 
 // Lấy action từ form
 $action = $_POST['action'] ?? '';

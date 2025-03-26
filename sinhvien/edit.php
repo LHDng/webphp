@@ -2,6 +2,11 @@
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../includes/header.php';
 
+
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+$_SESSION['csrf_token_expire'] = time() + 3600; // Token có hiệu lực 1 giờ
+
+
 if (!isset($_GET['id'])) {
     header("Location: index.php");
     exit();
@@ -33,7 +38,8 @@ $nganhHoc = $conn->query("SELECT * FROM NganhHoc");
     <form action="process.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="MaSV" value="<?= htmlspecialchars($sv['MaSV']) ?>">
-        
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="HoTen" class="form-label">Họ và Tên</label>

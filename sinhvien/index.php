@@ -44,6 +44,7 @@ $result = $conn->query($sql);
                     <td><?= date('d/m/Y', strtotime($row['NgaySinh'])) ?></td>
                     <td><?= htmlspecialchars($row['TenNganh']) ?></td>
 
+                    
                     <td class="text-center">
                         <?php
                         $imagePath = '../' . ltrim($row['Hinh'], '/'); // Đảm bảo đường dẫn đúng

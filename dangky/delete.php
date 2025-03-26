@@ -9,6 +9,7 @@ if (!isset($_GET['madk']) || !isset($_GET['mahp'])) {
     exit();
 }
 
+
 $madk = $_GET['madk'];
 $mahp = $_GET['mahp'];
 $masv = $_SESSION['masv'];

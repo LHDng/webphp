@@ -18,6 +18,7 @@ $stmt->bind_param("s", $_SESSION['masv']);
 $stmt->execute();
 $result_check = $stmt->get_result();
 
+
 if ($result_check->num_rows == 0) {
     session_destroy();
     $_SESSION['error'] = "Tài khoản không tồn tại trong hệ thống";

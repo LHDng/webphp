@@ -17,6 +17,7 @@ $stmtCheck->bind_param("s", $masv);
 $stmtCheck->execute();
 $result = $stmtCheck->get_result();
 
+
 if ($result->num_rows == 0) {
     header("Location: index.php?error=Sinh+viên+không+tồn+tại");
     exit();

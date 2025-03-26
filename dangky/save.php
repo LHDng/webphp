@@ -14,6 +14,7 @@ $masv = $_SESSION['masv'];
 // Bắt đầu transaction
 $conn->begin_transaction();
 
+
 try {
     // Tạo bản ghi đăng ký mới
     $sql = "INSERT INTO DangKy (NgayDK, MaSV) VALUES (CURDATE(), '$masv')";

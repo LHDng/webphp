@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                            <i class="fas fa-sign-in-alt"></i> Đăng nhập 
                         </button>
                     </div>
                 </form>

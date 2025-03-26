@@ -68,6 +68,7 @@ $imageExists = !empty($imagePath) && file_exists(__DIR__ . '/' . $imagePath);
                         </div>
                     </div>
                     
+                    
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <p><strong>Giới tính:</strong> <?= htmlspecialchars($sv['GioiTinh']) ?></p>

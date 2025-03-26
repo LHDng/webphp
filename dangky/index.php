@@ -42,6 +42,7 @@ while ($row = $result->fetch_assoc()) {
     <div class="card-header bg-primary text-white">
         <h5 class="mb-0">Học phần đã đăng ký</h5>
     </div>
+    
     <div class="card-body">
         <?php if ($soHocPhan > 0): ?>
         <div class="table-responsive">

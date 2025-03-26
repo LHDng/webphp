@@ -6,6 +6,7 @@ require_once '../includes/auth_check.php';
 
 $masv = $_SESSION['masv'];
 
+
 // Lấy danh sách đăng ký hiện tại
 $sql = "SELECT dk.MaDK, ctdk.MaHP 
         FROM DangKy dk 
